@@ -1,0 +1,155 @@
+<script setup lang="ts">
+// composables
+import { useTheme, useDisplay } from 'vuetify'
+
+// utilities
+import { computed, onMounted } from 'vue'
+
+// stores
+import { useAppStore } from '@/store/app';
+
+const appStore = useAppStore()
+const theme = useTheme()
+
+
+const { smAndDown } = useDisplay()
+
+
+const isDark = computed({
+  get() {
+    return appStore.dark
+  },
+  set(val) {
+    appStore.dark = val
+  }
+})
+
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  theme.global.name.value = isDark.value ? 'dark' : 'light'
+}
+
+onMounted(() => {
+  theme.global.name.value = isDark.value ? 'dark' : 'light'
+})
+</script>
+
+
+<template>
+  <VApp>
+    <TheHeader :is-dark="isDark" :sm-and-down="smAndDown" @toggle-theme="toggleTheme" />
+    <VMain>
+      <RouterView />
+    </VMain>
+    <TheFooter />
+    <VBottomNavigation class="d-flex d-md-none" mode="shift" :elevation="24">
+      <VBtn color="primary" variant="plain" icon="mdi-github"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-linkedin"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-twitter"></VBtn>
+    </VBottomNavigation>
+    <div class="socials d-none d-md-flex">
+      <VBtn color="primary" variant="plain" icon="mdi-github"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-linkedin"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn>
+      <VBtn color="primary" variant="plain" icon="mdi-twitter"></VBtn>
+      <div class="line-div">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="contact d-none d-md-flex">
+      <div class="email-div">
+        <a href="mailto:omondicedo@gmail.com">omondicedo@gmail.com</a>
+      </div>
+    </div>
+  </VApp>
+</template>
+
+<style lang="scss" scoped>
+.socials {
+  position: fixed;
+  bottom: 0px;
+  left: 30px;
+  right: auto;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  color: rgb(var(--v-theme-primary));
+  line-height: 1.3;
+  font-size: 20px;
+  font-family: 'Space Grotesk';
+
+  .line-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    writing-mode: vertical-rl;
+
+    .line {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      vertical-align: center;
+      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 1px;
+        height: 50vh;
+        position: absolute;
+        right: -20%;
+        margin-top: 20px;
+        background-color: rgb(var(--v-theme-primary));
+      }
+    }
+  }
+}
+
+.contact {
+  width: 30px;
+  position: fixed;
+  bottom: 0px;
+  left: auto;
+  right: 30px;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  color: rgb(var(--v-theme-primary));
+  line-height: 1.3;
+  font-size: 20px;
+  font-family: 'Space Grotesk';
+
+  .email-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    writing-mode: vertical-rl;
+
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      vertical-align: center;
+      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 1px;
+        height: 50vh;
+        position: absolute;
+        left: 45%;
+        margin-top: 20px;
+        background-color: rgb(var(--v-theme-primary))
+      }
+    }
+
+  }
+}
+</style>
