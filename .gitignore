@@ -9,8 +9,6 @@
 # dependencies
 /node_modules
 *.local
-yarn.lock
-package-lock.json
 
 # IDEs and editors
 /.idea
