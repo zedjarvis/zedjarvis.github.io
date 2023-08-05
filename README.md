@@ -1,4 +1,4 @@
-# default
+# Ced's Portfolio Template
 
 ## Project setup
 
