@@ -18,10 +18,14 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
 
       - name: Build project
-        run: npm run build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build # will run `yarn build` command
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
