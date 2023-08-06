@@ -43,16 +43,31 @@ onMounted(() => {
     </VMain>
     <TheFooter />
     <VBottomNavigation class="d-flex d-md-none" mode="shift" :elevation="24">
-      <VBtn color="primary" variant="plain" icon="mdi-github"></VBtn>
-      <VBtn color="primary" variant="plain" icon="mdi-linkedin"></VBtn>
-      <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn>
-      <VBtn color="primary" variant="plain" icon="mdi-twitter"></VBtn>
+      <VBtn href="https://github.com/zedjarvis" target="_blank" color="primary" variant="plain" icon="mdi-github"></VBtn>
+      <VBtn href="https://www.linkedin.com/in/cedrouseroll-omondi-44b119252/" target="_blank" color="primary"
+        variant="plain" icon="mdi-linkedin"></VBtn>
+      <!-- <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn> -->
+      <VBtn href="https://twitter.com/CedrouseR" target="_blank" color="primary" variant="plain" icon="mdi-twitter">
+      </VBtn>
     </VBottomNavigation>
     <div class="socials d-none d-md-flex">
-      <VBtn href="https://github.com/zedjarvis" color="primary" variant="plain" icon="mdi-github"></VBtn>
-      <VBtn href="https://www.linkedin.com/in/cedrouseroll-omondi-44b119252/" color="primary" variant="plain" icon="mdi-linkedin"></VBtn>
-      <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn>
-      <VBtn href="https://twitter.com/CedrouseR" color="primary" variant="plain" icon="mdi-twitter"></VBtn>
+      <VBtn href="https://github.com/zedjarvis" target="_blank" color="primary" variant="plain" icon>
+        <VIcon>mdi-github</VIcon>
+        <VTooltip activator="parent" location="right">Checkout my Github</VTooltip>
+      </VBtn>
+      <VBtn href="https://www.linkedin.com/in/cedrouseroll-omondi-44b119252/" target="_blank" color="primary"
+        variant="plain" icon>
+        <VIcon>mdi-linkedin</VIcon>
+        <VTooltip activator="parent" location="right">View my Linkedin</VTooltip>
+      </VBtn>
+      <VBtn color="primary" variant="plain" icon>
+        <VIcon>mdi-instagram</VIcon>
+        <VTooltip activator="parent" location="right">See what's on Instagram</VTooltip>
+      </VBtn>
+      <VBtn href="https://twitter.com/CedrouseR" target="_blank" color="primary" variant="plain" icon>
+        <VIcon>mdi-twitter</VIcon>
+        <VTooltip activator="parent" location="right">It's twitter</VTooltip>
+      </VBtn>
       <div class="line-div">
         <div class="line"></div>
       </div>
