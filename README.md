@@ -1,4 +1,4 @@
-# Ced's Portfolio Template
+# My Portfolio Website
 
 ## Project setup
 
