@@ -18,7 +18,8 @@ const toggleDrawer = () => drawer.value = !drawer.value
 
 <template>
   <VAppBar scroll-behavior="elevate hide" class="px-md-16" style="background: rgb(var(--v-theme-background));">
-    <VAppBarNavIcon color="primary" class="d-sm-flex d-md-none" @click="toggleDrawer" />
+    <VAppBarNavIcon :icon="drawer ? 'mdi-close' : 'mdi-menu'" color="primary" class="d-sm-flex d-md-none"
+      @click="toggleDrawer" />
     <VAppBarTitle class="name-logo">
       <span class="text-primary">&lt;</span>
       <span v-if="smAndDown">Cr</span>
@@ -37,7 +38,7 @@ const toggleDrawer = () => drawer.value = !drawer.value
       </VTooltip>
     </VBtn>
   </VAppBar>
-  <VNavigationDrawer :height="210" v-model="drawer" temporary location="right" :scrim="false">
+  <VNavigationDrawer :height="210" v-model="drawer" temporary location="top" :scrim="false">
     <VList>
       <VListItem title="About"></VListItem>
       <VDivider></VDivider>
