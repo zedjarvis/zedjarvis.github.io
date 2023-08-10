@@ -10,7 +10,7 @@ const { xs } = useDisplay()
 
 </script>
 <template>
-  <VSheet class="d-flex justify-center text-center" style="background-color: rgb(var(--v-theme-background));">
+  <VSheet class="d-flex justify-center align-center text-center" style="background-color: rgb(var(--v-theme-background));">
     <VContainer class="text-center" style="position: relative;" :style="{ height: `${height - 64}px` }">
       <VCard rounded="0" :elevation="0" class="pt-14 mt-8 bg-transparent">
         <h1>
