@@ -17,7 +17,7 @@ const toggleDrawer = () => drawer.value = !drawer.value
 </script>
 
 <template>
-  <VAppBar scroll-behavior="elevate hide" class="px-md-16" style="background: rgb(var(--v-theme-background));">
+  <VAppBar scroll-behavior="elevate" class="px-md-16" style="background: rgb(var(--v-theme-background));">
     <VAppBarNavIcon :icon="drawer ? 'mdi-close' : 'mdi-menu'" color="primary" class="d-sm-flex d-md-none"
       @click="toggleDrawer" />
     <VAppBarTitle class="name-logo">
