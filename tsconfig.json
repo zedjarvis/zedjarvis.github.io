@@ -42,6 +42,7 @@
   },
   "include": [
     "vite.config.*",
+    "auto-imports.d.ts",
     "components.d.ts",
     "typed-router.d.ts",
     "src/vite-env.d.ts",

@@ -1,0 +1,29 @@
+@use './fonts.scss';
+
+*,
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: rgb(136, 146, 176);
+    color: rgb(204, 214, 246);
+}
+
+.font-inter {
+    font-family: Inter;
+}
+
+.font-space {
+    font-family: 'Space Grotesk';
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

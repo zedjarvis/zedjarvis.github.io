@@ -1,20 +1,20 @@
 <script setup lang="ts">
 // assets
-import Python from "@/assets/images/svg/python.svg"
 import Django from "@/assets/images/svg/django-icon.svg"
+import Graphql from "@/assets/images/svg/graphql.svg"
+import Javascript from "@/assets/images/svg/javascript.svg"
 import Nodejs from "@/assets/images/svg/nodejs-icon.svg"
+import Postgresql from "@/assets/images/svg/postgresql.svg"
+import Python from "@/assets/images/svg/python.svg"
+import React from "@/assets/images/svg/react.svg"
+import Typescript from "@/assets/images/svg/typescript-icon.svg"
 import Vuejs from "@/assets/images/svg/vue.svg"
 import Vuetifyjs from "@/assets/images/svg/vuetifyjs.svg"
-import Typescript from "@/assets/images/svg/typescript-icon.svg"
-import Javascript from "@/assets/images/svg/javascript.svg"
-import React from "@/assets/images/svg/react.svg"
-import Postgresql from "@/assets/images/svg/postgresql.svg"
-import Graphql from "@/assets/images/svg/graphql.svg"
 import NuxtLogo from "@assets/images/svg/nuxt-icon.svg"
 </script>
 
 <template>
-  <p class="mt-16">Tech Stack I use <VIcon>mdi-arrow-down</VIcon>
+  <p class="mt-16">Tech Stack I've used <VIcon>mdi-arrow-down</VIcon>
   </p>
   <div class="d-flex flex-wrap mt-5 justify-center">
     <span>

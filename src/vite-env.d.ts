@@ -1,4 +1,6 @@
 /// <reference types="vite/client" />
+/// <reference types="vite-plugin-vue-meta-layouts/client" />
+
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue'
@@ -8,5 +10,5 @@ declare module '*.vue' {
 
 declare module 'vue-writer' {
   import VueWriter from 'vue-writer'
-  export default  VueWriter
+  export default VueWriter
 }

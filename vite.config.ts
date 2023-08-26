@@ -1,12 +1,17 @@
 // Plugins
-import VueRouter from 'unplugin-vue-router/vite'
+import UnheadVite from '@unhead/addons/vite'
+import { unheadVueComposablesImports } from '@unhead/vue'
 import vue from '@vitejs/plugin-vue'
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import VueRouter from 'unplugin-vue-router/vite'
+import MetaLayouts from 'vite-plugin-vue-meta-layouts'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // Utilities
-import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,12 +23,33 @@ export default defineConfig({
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,
-      styles: { configFile: 'src/assets/settings.scss' }
+    }),
+    AutoImport({
+      dts: true,
+      imports: [
+        'vue',
+        VueRouterAutoImports,
+        unheadVueComposablesImports,
+        {
+          '@vueuse/core': [
+            'useWindowSize',
+            'useLocalStorage',
+            'useWindowScroll',
+          ]
+        },
+        {
+          'vuetify': [
+            'useDisplay',
+            'useTheme',
+          ]
+        }
+      ]
     }),
     Components({
       dts: true,
-      extensions: ['vue', 'ts', 'tsx']
     }),
+    UnheadVite(),
+    MetaLayouts({}),
   ],
   define: { 'process.env': {} },
   resolve: {

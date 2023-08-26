@@ -1,20 +1,13 @@
 <script setup lang="ts">
-// composables
-import { useTheme, useDisplay } from 'vuetify'
-
-// utilities
-import { computed, onMounted } from 'vue'
-
 // stores
 import { useAppStore } from '@/store/app';
 
+// variables
 const appStore = useAppStore()
 const theme = useTheme()
-
-
 const { smAndDown } = useDisplay()
 
-
+// computed refs
 const isDark = computed({
   get() {
     return appStore.dark
@@ -24,13 +17,23 @@ const isDark = computed({
   }
 })
 
+// functions
 const toggleTheme = () => {
   isDark.value = !isDark.value
   theme.global.name.value = isDark.value ? 'dark' : 'light'
 }
 
+// hooks
 onMounted(() => {
   theme.global.name.value = isDark.value ? 'dark' : 'light'
+})
+
+// seo
+useHead({
+  // Titles
+  titleTemplate: '%s %seperator %siteName',
+  // Template params
+  templateParams: { seperator: '|', siteName: 'Cedrouseroll' },
 })
 </script>
 
@@ -46,7 +49,7 @@ onMounted(() => {
       <VBtn href="https://github.com/zedjarvis" target="_blank" color="primary" variant="plain" icon="mdi-github"></VBtn>
       <VBtn href="https://www.linkedin.com/in/cedrouseroll-omondi-44b119252/" target="_blank" color="primary"
         variant="plain" icon="mdi-linkedin"></VBtn>
-      <!-- <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn> -->
+      <VBtn color="primary" variant="plain" icon="mdi-instagram"></VBtn>
       <VBtn href="https://twitter.com/CedrouseR" target="_blank" color="primary" variant="plain" icon="mdi-twitter">
       </VBtn>
     </VBottomNavigation>

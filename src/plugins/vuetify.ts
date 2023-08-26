@@ -5,6 +5,7 @@
  */
 
 // Styles
+import '@assets/main.scss'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
@@ -25,10 +26,11 @@ export default createVuetify({
       },
       dark: {
         colors: {
-          primary: '#64ffda',
-          background: '#0a192f',
-          'on-background': '#ccd6f6',
-          surface: 'rgb(23, 42, 69)',
+          primary: 'rgb(100, 255, 218)',
+          'primary-text': 'rgb(204, 214, 246)',
+          background: '#002937',
+          'on-background': 'rgb(136, 146, 176)',
+          surface: '#1a3a46',
         }
       }
     },
