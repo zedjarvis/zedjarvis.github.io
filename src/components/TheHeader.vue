@@ -1,60 +1,73 @@
 <script setup lang="ts">
-// utilities
-import { ref } from 'vue';
 
+// props
 const props = defineProps<{
   isDark: boolean,
   smAndDown: boolean
 }>()
 
+// emmits
 const emit = defineEmits<{
   (e: 'toggleTheme'): void
 }>()
 
+// variables
 const drawer = ref<boolean | null>(null)
+const { smAndDown } = useDisplay()
 
+// functions
 const toggleDrawer = () => drawer.value = !drawer.value
 </script>
 
 <template>
   <VAppBar scroll-behavior="elevate hide" height="70" class="px-md-16 bg-background">
-    <VAppBarNavIcon :icon="drawer ? 'mdi-close' : 'mdi-menu'" color="primary" class="d-sm-flex d-md-none"
-      @click="toggleDrawer" />
-    <VAppBarTitle class="name-logo">
-      <span class="text-primary">&lt;</span>
-      <span v-if="props.smAndDown">Cr</span>
-      <span v-else>CedrouseR
-        <VTooltip activator="parent" location="bottom">Cedrouseroll Omondi</VTooltip>
-      </span>
-      <span class="text-primary">/&gt;</span>
+    <VAppBarTitle>
+      <span class="name-logo" :style="{ fontSize: `${smAndDown ? '25px' : '25px'}` }">CR</span>
     </VAppBarTitle>
     <VSpacer></VSpacer>
     <VToolbarItems class="d-none d-md-flex align-center">
       <p class="nav-link ma-3"><span class="mr-2 text-primary">1.</span>About</p>
-      <p class="nav-link ma-3"><span class="mr-2 text-primary">2.</span>Portfolio</p>
+      <p class="nav-link ma-3"><span class="mr-2 text-primary">2.</span>Projects</p>
       <p class="nav-link ma-3"><span class="mr-2 text-primary">3.</span>Blog</p>
       <p class="nav-link ma-3"><span class="mr-2 text-primary">4.</span>Playground</p>
+      <VBtn @click="$emit('toggleTheme')" :ripple="false" variant="plain" class="text-capitalize" icon>
+        <VIcon :icon="props.isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"></VIcon>
+        <VTooltip activator="parent" location="bottom"
+          :text="props.isDark ? 'Activate light mode' : 'Activate dark mode'">
+        </VTooltip>
+      </VBtn>
     </VToolbarItems>
-    <VBtn @click="$emit('toggleTheme')" :ripple="false" variant="plain" class="text-capitalize" icon>
-      <VIcon :icon="props.isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"></VIcon>
-      <VTooltip activator="parent" location="bottom" :text="props.isDark ? 'Activate light mode' : 'Activate dark mode'">
-      </VTooltip>
-    </VBtn>
-    <VBtn rounded="0" variant="outlined" color="primary" class="text-capitalize ma-0" style="font-size: 13px !important;">
+    <VBtn variant="outlined" color="primary" class="d-none d-md-flex text-capitalize" style="font-size: 13px !important;">
       Resume <VIcon>mdi-arrow-right</VIcon>
       <VTooltip activator="parent" location="bottom">Download my Resume</VTooltip>
     </VBtn>
+    <VAppBarNavIcon :icon="drawer ? 'mdi-close' : 'mdi-menu'" color="primary" class="d-sm-flex d-md-none"
+      @click="toggleDrawer" />
   </VAppBar>
-  <VNavigationDrawer :elevation="0" :height="210" v-model="drawer" temporary location="top">
+  <VNavigationDrawer :elevation="0" :width="320" v-model="drawer" temporary location="top">
     <VList class="text-center">
+      <VBtn variant="outlined" color="primary" class="text-capitalize mb-2" style="font-size: 13px !important;">
+        Resume <VIcon>mdi-arrow-right</VIcon>
+      </VBtn>
+      <VDivider></VDivider>
       <VListItem title="About"></VListItem>
       <VDivider></VDivider>
-      <VListItem title="Portfolio"></VListItem>
+      <VListItem title="Projects"></VListItem>
       <VDivider></VDivider>
       <VListItem title="Blog"></VListItem>
       <VDivider></VDivider>
       <VListItem title="Playground"></VListItem>
       <VDivider></VDivider>
+      <VBtn @click="$emit('toggleTheme')" :ripple="false" variant="plain" class="text-capitalize" icon>
+        <VIcon :icon="props.isDark ? 'mdi-weather-sunny' : 'mdi-weather-night'"></VIcon>
+      </VBtn>
+      <VBtn href="https://github.com/zedjarvis" target="_blank" variant="plain" icon>
+      <VIcon>mdi-github</VIcon>
+    </VBtn>
+    <VBtn href="https://www.linkedin.com/in/cedrouseroll-omondi-44b119252/" target="_blank"
+      variant="plain" icon>
+      <VIcon>mdi-linkedin</VIcon>
+    </VBtn>
     </VList>
   </VNavigationDrawer>
 </template>
@@ -64,11 +77,17 @@ $link-font: SF Mono, Fira Code, Fira Mono, Roboto Mono, Lucida Console, Monaco, 
 
 .name-logo {
   font-family: 'Space Grotesk' !important;
-  font-weight: 600;
-  font-size: 20px;
-  font-variation-settings: 'wght' 600;
-  color: rgb(var(--v-theme-primary-text));
+  font-weight: 900;
+  font-variation-settings: 'wght' 900;
+  background-image: linear-gradient(43deg, #C850C0 0%, rgb(100, 255, 218) 46%, #FFCC70 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  color: transparent;
+  position: relative;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
+
 
 .nav-link {
   font-size: 13px;
