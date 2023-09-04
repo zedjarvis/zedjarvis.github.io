@@ -49,7 +49,9 @@ export default defineConfig({
       dts: true,
     }),
     UnheadVite(),
-    MetaLayouts({}),
+    MetaLayouts({
+      defaultLayout: 'home'
+    }),
   ],
   define: { 'process.env': {} },
   resolve: {
