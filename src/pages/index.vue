@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core';
-import { useDisplay } from 'vuetify';
-
 import VueWriter from 'vue-writer';
 
-
+// variables
 const { height } = useWindowSize()
+const { y } = useWindowScroll()
 const { smAndDown } = useDisplay()
 
-// all the goodies
+// computed refs
+const wHeight = computed(() => smAndDown ? 'auto' : `${height.value - 64}px`)
+const isScrolling = computed(() => y.value > 3)
+// seo
 useHead({
-  // Titles
   title: 'Home',
 })
 
@@ -19,23 +19,23 @@ useHead({
   <section id="hero">
     <VSheet class="d-flex align-center" style="background-color: rgb(var(--v-theme-background));">
       <VContainer class="text-center position-relative" :style="{ height: `${height - 64}px` }">
-        <VCard rounded="0" :elevation="0" class="pt-14 mt-8 bg-transparent">
-          <h1>
+        <VCard rounded="0" :elevation="0" class="pt-14 mt-md-8 bg-transparent">
+          <h1 class="mb-3 mb-md-1">
             <VueWriter class="intro-text" :array="['Hello, World! My name is...']" :iterations="1" :typeSpeed="70"
               caret="underscore" />
           </h1>
           <h2>
-            <VueWriter class="name-text" :style="{ fontSize: `${smAndDown ? 1.85 : 5}rem` }"
+            <VueWriter class="name-text" :style="{ fontSize: `${smAndDown ? 3.125 : 5}rem` }"
               :array="['Cedrouseroll Omondi.']" :iterations="1" :typeSpeed="100" :start="3000" caret="underscore" />
           </h2>
           <h3 class="h-100">
-            <VueWriter class="about-text mt-5 mt-md-2" :style="{ fontSize: `${smAndDown ? 1.4 : 4}rem` }"
+            <VueWriter class="about-text mt-5 mt-md-2" :style="{ fontSize: `${smAndDown ? 3 : 4}rem` }"
               :array="['AI enthusiast,', 'Pythonista,', 'Back-End Developer,', 'Front-End Developer,', 'A Full-Stack Software Developer.']"
               :start="6000" :iterations="1" :typeSpeed="100" :eraseSpeed="50" caret="underscore" />
           </h3>
           <TechStack />
         </VCard>
-        <div id="scroll-down" class="scroll-down d-none d-md-flex">
+        <div v-if="!isScrolling" id="scroll-down" class="scroll-down d-none d-md-flex">
           <a><span></span> </a>
         </div>
       </VContainer>
