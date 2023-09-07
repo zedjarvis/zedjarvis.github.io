@@ -2,6 +2,7 @@
 import UnheadVite from '@unhead/addons/vite'
 import { unheadVueComposablesImports } from '@unhead/vue'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
@@ -20,10 +21,11 @@ export default defineConfig({
     vue({
       template: { transformAssetUrls }
     }),
+    UnoCSS(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,
-    }),
+          }),
     AutoImport({
       dts: true,
       imports: [
