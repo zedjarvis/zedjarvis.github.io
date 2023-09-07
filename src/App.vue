@@ -18,7 +18,7 @@ useHead({
   // Titles
   titleTemplate: '%s %seperator %siteName',
   // Template params
-  templateParams: { seperator: '|', siteName: 'Cedrouseroll' },
+  templateParams: { seperator: '←', siteName: 'Cedrouseroll' },
 })
 </script>
 
