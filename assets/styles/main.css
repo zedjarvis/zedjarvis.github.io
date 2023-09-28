@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-display: swap;
+  src: url('/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Amatic SC';
+  font-display: swap;
+  src: url('/fonts/AmaticSC-Regular.ttf') format('truetype');
+}
+*,
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgb(136, 146, 176);
+  color: rgb(204, 214, 246);
+}
+
+.font-inter {
+  font-family: Inter;
+}
+
+.font-space {
+  font-family: 'Space Grotesk';
+}
+
+.font-amatic {
+  font-family: 'Amatic SC';
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  transition: 0.5s ease;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+
+.active .nav-indicator {
+  width: 4rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240/var(--tw-bg-opacity));
+}

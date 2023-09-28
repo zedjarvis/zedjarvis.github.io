@@ -1,9 +1,0 @@
-@use '../fonts.scss';
-
-$font-inter: Inter;
-
-@forward 'vuetify/settings' with (
-  $utilities: false,
-
-  $body-font-family: $font-inter,
-);
