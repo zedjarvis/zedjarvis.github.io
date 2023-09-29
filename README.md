@@ -1,18 +1,12 @@
-# Nuxt 3 Minimal Starter
+# PERSONAL PORTFOLIO
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Built with [Nuxt 3](https://nuxt.com/docs/getting-started/introduction) and @nuxt/ui.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
 # yarn
 yarn install
 ```
@@ -37,12 +31,6 @@ yarn dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
 # yarn
 yarn build
 ```
@@ -50,12 +38,6 @@ yarn build
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
 # yarn
 yarn preview
 ```
