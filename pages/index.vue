@@ -14,6 +14,7 @@ useHead({
 
 const greeted = useLocalStorage('greeted', false)
 const currentSection = ref()
+const root = ref()
 
 const {
   isSupported,
@@ -34,6 +35,7 @@ if (isSupported.value && !greeted.value)
 
 onShow(() => greeted.value = true)
 onError(() => console.log('Greeting notification not shown'))
+
 
 interface Link {
   text: string
@@ -59,6 +61,7 @@ interface Project {
   techStack: string[]
   opensource?: boolean
 }
+
 
 const experiences = ref<Experience[]>([
   {
@@ -98,27 +101,30 @@ const projects = ref<Project[]>([
   {
     title: 'Pro-Manager.com',
     image: '/images/portfolio3.png',
-    url: 'pro-manager.vercel.app',
-    body: '',
+    url: 'https://pro-manager.vercel.app',
+    body: 'A Project Management web application. The landing page is greatly inspired by Trello and the actual app by ProjectManager.com. Fronted is built with Vue composition api and Typescript while the backed is build with Django & Django Rest Framework. The app uses JWT authentication and django-channels for websockets, Postgresql and Redis for database requirements.',
     techStack: ['Django', 'Vue.js', 'Vuetify', 'UnoCSS', 'SCSS', 'Typescript', 'Javascript', 'Postgresql', 'DRF', 'Redis', 'Docker']
   },
   {
     title: 'HaftStudio Website',
     image: '/images/portfolio.jpg',
     url: 'https://haftstudio-website.vercel.app',
-    body: '',
+    body: 'Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement, integrations with Shopify\'s StoreFront API are underway.',
     techStack: ['Vue.js', 'Vuetify', 'SCSS', 'Typecript']
   }
 ])
+
+
 onMounted(() => {
   const sections = document.querySelectorAll('section')
-  window.addEventListener('scroll', () => {
+  document.addEventListener('scroll', () => {
     sections.forEach((section) => {
       const sectionTop = section.offsetTop
       if ((scrollY + 96) >= sectionTop) currentSection.value = section.getAttribute('id')
     })
   })
 })
+
 </script>
 <template>
   <div class="lg:flex lg:justify-between lg:gap-4">
@@ -176,7 +182,6 @@ onMounted(() => {
           </ul>
         </nav>
       </div>
-
       <ul class="mt-8  flex items-center" aria-label="Social media">
         <li class="mr-5">
           <SocialLink title="Github" url="https://github.com/zedjarvis" icon="i-carbon-logo-github" />
@@ -196,7 +201,7 @@ onMounted(() => {
     </header>
 
     <!-- MAIN  -->
-    <main id="content" class="pt-24 lg:w-1/2 lg:py-24 font-space">
+    <main id="content" ref="root" class="pt-24 lg:w-1/2 lg:py-24 font-space">
 
       <!-- ABOUT SECTION -->
       <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">

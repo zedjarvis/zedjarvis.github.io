@@ -55,7 +55,7 @@ const { title, image, url, body, techStack, opensource } = toRefs(props)
         </li>
       </ul>
     </div>
-    <NuxtImg placeholer quality="100" alt="" loading="lazy" width="200" decoding="async" data-nimg="1"
+    <NuxtImg placeholer :quality="100" alt="" loading="lazy" width="200" decoding="async" data-nimg="1"
       class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
       style="color:transparent" :src="image" />
   </div>
