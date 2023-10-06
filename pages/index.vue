@@ -14,7 +14,6 @@ useHead({
 
 // assets
 
-const greeted = useLocalStorage('greeted', false)
 const currentSection = ref()
 const root = ref()
 const container = ref(null)
@@ -27,26 +26,6 @@ const headingStyle = computed((): CSSProperties => {
     transform: isHovering.value ? `translateX(${parallax.tilt * 10}px) translateY(${parallax.roll * 10}px)` : '',
   }
 })
-const {
-  isSupported,
-  show,
-  onShow,
-  onError,
-} = useWebNotification({
-  title: 'Greetings from Ced!',
-  body: 'Enjoy your visit.',
-  dir: 'auto',
-  lang: 'en',
-  renotify: true,
-  tag: 'greeting',
-})
-
-if (isSupported.value && !greeted.value)
-  show()
-
-onShow(() => greeted.value = true)
-onError(() => console.log('Greeting notification not shown'))
-
 
 interface Link {
   text: string
