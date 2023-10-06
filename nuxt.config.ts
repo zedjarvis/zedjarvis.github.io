@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-typed-router',
     '@vueuse/nuxt',
+    '@vueuse/motion/nuxt',
     '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     'nuxt-simple-robots',
@@ -21,7 +22,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     // '@hypernym/nuxt-anime',
     'nuxt-particles',
-    // '@tresjs/nuxt',
+    '@tresjs/nuxt',
   ],
   ui: {
     icons: ['carbon', 'logos'],

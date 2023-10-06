@@ -22,7 +22,7 @@ const { title, image, url, body, techStack, opensource } = toRefs(props)
     <div class="z-10 sm:order-2 sm:col-span-6">
       <h3>
         <a class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300  group/link text-base"
-          :href="url" target="_blank" rel="noreferrer" aria-label="Spotify Profile">
+          :href="url" target="_blank" rel="noreferrer" :aria-label="title">
           <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
           <span class="inline-block">{{ title }}
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -41,14 +41,6 @@ const { title, image, url, body, techStack, opensource } = toRefs(props)
       <p class="mt-2 text-sm leading-normal">
         {{ body }}
       </p>
-      <!-- <a class="relative mt-2 inline-flex items-center text-sm font-medium text-slate-300 hover:text-teal-300 focus-visible:text-teal-300"
-        href="https://github.com/bchiang7/spotify-profile" target="_blank" rel="noreferrer"
-        aria-label="570 stars on GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-          class="mr-1 h-3 w-3" aria-hidden="true">
-          <path fill-rule="evenodd"
-            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-            clip-rule="evenodd"></path>
-        </svg><span>570</span></a> -->
       <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
         <li v-for="(item, i) in  techStack" :key="i" class="mr-1.5 mt-2">
           <Pill :text="item" />

@@ -2,7 +2,7 @@
 useHead({
   titleTemplate: '%s ← Cedrouseroll',
   bodyAttrs: {
-    class: 'antialiased relative font-space text-slate-400 leading-relaxed bg-[#002937] selection:text-teal-900 selection:bg-teal-300'
+    class: 'relative font-space text-slate-400 leading-relaxed bg-[#002937] selection:text-teal-900 selection:bg-teal-300'
   }
 })
 
@@ -12,6 +12,7 @@ const cursorInnerRef = ref()
 const cursorOuterRef = ref()
 
 function updateCursor({ clientX, clientY }: MouseEvent) {
+  console.log('animating mouse')
   gsap.set(cursorInnerRef.value, {
     left: clientX,
     top: clientY,
@@ -23,8 +24,8 @@ function updateCursor({ clientX, clientY }: MouseEvent) {
     y: clientY,
   });
 
-  // requestAnimationFrame(updateCursor);
 }
+
 
 onMounted(() => {
   // requestAnimationFrame(updateCursor)
@@ -39,12 +40,14 @@ onMounted(() => {
       scale: 1,
     })
   }, document)
-  useEventListener('mouseenter', () => {
+  useEventListener('pointerenter', () => {
+    console.log('mousein')
     gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
       opacity: 1,
     })
   }, document)
-  useEventListener('mouseleave', () => {
+  useEventListener('pointerleave', () => {
+    console.log('mouse out')
     gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
       opacity: 0,
     })
@@ -54,12 +57,13 @@ onMounted(() => {
 
 <template>
   <NuxtLayout>
-    <div class="cursor hidden lg:flex">
+    <VitePwaManifest />
+    <div class="cursor hidden md:flex">
       <div ref="cursorInnerRef"
-        class="cursor--small mix-blend-difference pointer-events-none select-none opacity-0 fixed z-30 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
+        class="cursor--small mix-blend-difference pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
       </div>
       <div ref="cursorOuterRef"
-        class="cursor--large mix-blend-difference pointer-events-none select-none opacity-0 fixed z-30 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]">
+        class="cursor--large mix-blend-difference pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]">
       </div>
     </div>
     <NuxtPage />

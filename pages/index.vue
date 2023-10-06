@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CSSProperties } from 'nuxt/dist/app/compat/capi';
+
 // SEO
 useHead({
   title: 'Home'
@@ -15,7 +17,16 @@ useHead({
 const greeted = useLocalStorage('greeted', false)
 const currentSection = ref()
 const root = ref()
+const container = ref(null)
 
+const isHovering = useElementHover(container)
+const parallax = reactive(useParallax(container))
+
+const headingStyle = computed((): CSSProperties => {
+  return {
+    transform: isHovering.value ? `translateX(${parallax.tilt * 10}px) translateY(${parallax.roll * 10}px)` : '',
+  }
+})
 const {
   isSupported,
   show,
@@ -109,7 +120,7 @@ const projects = ref<Project[]>([
     title: 'HaftStudio Website',
     image: '/images/portfolio.jpg',
     url: 'https://haftstudio-website.vercel.app',
-    body: 'Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement, integrations with Shopify\'s StoreFront API are underway.',
+    body: 'Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement.',
     techStack: ['Vue.js', 'Vuetify', 'SCSS', 'Typecript']
   }
 ])
@@ -132,23 +143,24 @@ onMounted(() => {
     <header
       class="font-space lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
-        <h1 class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+        <h1 v-motion-slide-top ref="container" :style="headingStyle"
+          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
           <NuxtLink to="/">
             Cedrouse Omondi
           </NuxtLink>
         </h1>
-        <h2 class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
+        <h2 v-motion-slide-left class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
           <RoughNotation :is-show="true" type="highlight" color="#f4f169">
             <span class="text-slate-500">Fullstack Software Developer</span>
           </RoughNotation>
         </h2>
-        <p class="mt-4 max-w-xs leading-normal">
+        <p v-motion-pop class="mt-4 max-w-xs leading-normal">
           <span class="font-thin">"The code you write makes you a programmer. The code you delete makes you a good one.
             The code you don't have to write makes you a great one."
           </span>
         </p>
         <nav class="nav hidden lg:block" aria-label="In-page jump links">
-          <ul class="mt-16 w-max">
+          <ul v-motion-slide-left class="mt-16 w-max">
             <li>
               <a class="group flex items-center py-3" :class="{ 'active': currentSection == 'about' }" href="#about">
                 <span
@@ -183,17 +195,17 @@ onMounted(() => {
         </nav>
       </div>
       <ul class="mt-8  flex items-center" aria-label="Social media">
-        <li class="mr-5">
+        <li v-motion-slide-bottom class="mr-5">
           <SocialLink title="Github" url="https://github.com/zedjarvis" icon="i-carbon-logo-github" />
         </li>
-        <li class="mr-5">
+        <li v-motion-slide-bottom class="mr-5">
           <SocialLink title="Linkedin" url="https://linkedin.com/in/cedrouseroll-omondi-44b119252"
             icon="i-carbon-logo-linkedin" />
         </li>
-        <li class="mr-5">
+        <li v-motion-slide-bottom class="mr-5">
           <SocialLink title="Twitter" url="https://twitter.com/cedrouseR" icon="i-carbon-logo-twitter" />
         </li>
-        <li class="mr-5">
+        <li v-motion-slide-bottom class="mr-5">
           <SocialLink title="Email" url="mailto:omondicedo@gmail.com" icon="i-carbon-email" />
         </li>
       </ul>
@@ -206,7 +218,7 @@ onMounted(() => {
       <!-- ABOUT SECTION -->
       <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
         <SectionHeader title="About" />
-        <About />
+        <About v-motion-slide-right />
       </section>
 
       <!-- EXPERIENCE SECTION  -->
@@ -214,7 +226,7 @@ onMounted(() => {
         <SectionHeader title="Experience" />
         <div>
           <ol class="group/list">
-            <li v-for="(exp, i) in experiences" :key="i" class="mb-12">
+            <li v-motion-pop-visible-once v-for="(exp, i) in experiences" :key="i" class="mb-12">
               <ExperienceCard :start-date="exp.startDate" :end-date="exp.endDate" :title="exp.title"
                 :company="exp.company" :url="exp.url" :body="exp.body" :links="exp.links" :tech-stack="exp.techStack" />
             </li>
@@ -232,7 +244,7 @@ onMounted(() => {
         <SectionHeader title="Projects" />
         <div>
           <ul class="group/list">
-            <li v-for="(project, i) in projects" :key="i" class="mb-12">
+            <li v-motion-pop-visible-once v-for="(project, i) in projects" :key="i" class="mb-12">
               <ProjectCard :title="project.title" :image="project.image" :url="project.url" :body="project.body"
                 :tech-stack="project.techStack" :opensource="project.opensource" />
             </li>
@@ -259,10 +271,15 @@ onMounted(() => {
         </div>
       </section>
 
-
+      <section id="3D">
+        <TresMesh :position="[2, 2, 0]" cast-shadow>
+          <TresSphereGeometry />
+          <TresMeshToonMaterial color="#FBB03B" />
+        </TresMesh>
+      </section>
 
       <!-- FOOTER  -->
-      <IndexFooter />
+      <IndexFooter v-motion-pop-visible />
 
 
     </main>
