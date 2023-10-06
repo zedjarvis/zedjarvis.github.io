@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// import { OrbitControls } from '@tresjs/cientos';
-// import { useFBX } from '@tresjs/cientos';
+import { OrbitControls } from '@tresjs/cientos';
 import { TresCanvas, useRenderLoop } from '@tresjs/core';
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from 'three';
 import { reactive, ref } from 'vue';
@@ -26,7 +25,7 @@ onLoop(({ elapsed }) => {
   sphereRef.value.position.y += Math.sin(elapsed) * 0.01
 })
 
-function onPointerEnter(ev) {
+function onPointerEnter(ev: any) {
   if (ev) {
     ev.object.material.color.set('#DFFF45')
   }
@@ -39,7 +38,7 @@ function onPointerEnter(ev) {
     <div class="w-[600px] h-[400px] absolute top-52">
       <TresCanvas v-bind="state">
         <TresPerspectiveCamera :position="[5, 5, 5]" :fov="45" :near="0.1" :far="1000" :look-at="[0, 0, 0]" />
-        <!-- <OrbitControls /> -->
+        <OrbitControls />
         <TresAmbientLight :intensity="0.5" />
 
         <TresMesh ref="sphereRef" :position="[0, 4, 0]" cast-shadow @pointer-enter="onPointerEnter">

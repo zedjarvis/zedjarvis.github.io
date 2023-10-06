@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 3001,
   },
+  ssr: false,
   modules: [
     '@nuxt/ui',
     '@nuxtjs/color-mode',
@@ -15,26 +16,14 @@ export default defineNuxtConfig({
     'nuxt-simple-robots',
     'nuxt-og-image',
     'nuxt-schema-org',
-    '@sidebase/nuxt-pdf',
-    '@nuxtjs/device',
     '@nuxt/image',
-    // '@hypernym/nuxt-anime',
-    'nuxt-particles',
     '@tresjs/nuxt',
   ],
   ui: {
-    icons: ['carbon', 'logos'],
+    icons: ['carbon'],
   },
   site: {
     url: 'https://zedjarvis.github.io'
-  },
-  experimental: {
-    // when using generate, payload js assets included in sw precache manifest
-    // but missing on offline, disabling extraction it until fixed
-    payloadExtraction: false,
-    inlineSSRStyles: false,
-    renderJsonPayloads: true,
-    typedPages: true,
   },
   css: ['~/assets/styles/main.css',],
   colorMode: {
