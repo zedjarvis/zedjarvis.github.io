@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     'nuxt-typed-router',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
+    'nuxt-gtag',
     'nuxt-simple-sitemap',
     'nuxt-simple-robots',
     'nuxt-og-image',
@@ -20,6 +21,9 @@ export default defineNuxtConfig({
   ],
   ui: {
     icons: ['carbon'],
+  },
+  gtag: {
+    id: 'G-65E8J8GCZ5',
   },
   site: {
     url: 'https://zedjarvis.github.io'
