@@ -1,0 +1,6 @@
+# START nuxt-simple-robots (indexable)
+User-agent: *
+Disallow: 
+
+Sitemap: https://zedjarvis.github.io/sitemap.xml
+# END nuxt-simple-robots
