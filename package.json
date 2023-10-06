@@ -23,7 +23,6 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/device": "^3.1.0",
     "@sidebase/nuxt-pdf": "^0.1.1",
-    "@vite-pwa/nuxt": "^0.1.1",
     "@vueuse/core": "^10.4.1",
     "@vueuse/motion": "^2.0.0",
     "@vueuse/nuxt": "^10.4.1",

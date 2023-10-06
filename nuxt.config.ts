@@ -1,4 +1,3 @@
-import { pwa } from './config/pwa'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -12,7 +11,6 @@ export default defineNuxtConfig({
     'nuxt-typed-router',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
-    '@vite-pwa/nuxt',
     'nuxt-simple-sitemap',
     'nuxt-simple-robots',
     'nuxt-og-image',
@@ -27,7 +25,6 @@ export default defineNuxtConfig({
   ui: {
     icons: ['carbon', 'logos'],
   },
-  pwa,
   site: {
     url: 'https://zedjarvis.github.io'
   },
