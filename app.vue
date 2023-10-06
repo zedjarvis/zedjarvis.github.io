@@ -57,7 +57,6 @@ onMounted(() => {
 
 <template>
   <NuxtLayout>
-    <VitePwaManifest />
     <div class="cursor hidden md:flex">
       <div ref="cursorInnerRef"
         class="cursor--small mix-blend-difference pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
