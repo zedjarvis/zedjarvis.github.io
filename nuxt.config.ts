@@ -16,7 +16,6 @@ export default defineNuxtConfig({
     'nuxt-simple-robots',
     'nuxt-og-image',
     'nuxt-schema-org',
-    '@nuxt/image',
     '@tresjs/nuxt',
   ],
   ui: {
