@@ -123,17 +123,17 @@ onMounted(() => {
       class="font-space lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
         <h1 v-motion-slide-top ref="container" :style="headingStyle"
-          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl transition-all">
           <NuxtLink to="/">
             Cedrouse Omondi
           </NuxtLink>
         </h1>
-        <h2 v-motion-slide-left class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
+        <h2 v-motion-pop class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
           <RoughNotation :is-show="true" type="highlight" color="#f4f169">
             <span class="text-slate-500">Fullstack Software Developer</span>
           </RoughNotation>
         </h2>
-        <p v-motion-pop class="mt-4 max-w-xs leading-normal">
+        <p v-motion-slide-left class="mt-4 max-w-xs leading-normal">
           <span class="font-thin">"The code you write makes you a programmer. The code you delete makes you a good one.
             The code you don't have to write makes you a great one."
           </span>
@@ -197,7 +197,7 @@ onMounted(() => {
       <!-- ABOUT SECTION -->
       <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
         <SectionHeader title="About" />
-        <About v-motion-slide-right />
+        <About v-motion-pop />
       </section>
 
       <!-- EXPERIENCE SECTION  -->
