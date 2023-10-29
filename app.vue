@@ -31,12 +31,12 @@ onMounted(() => {
   // requestAnimationFrame(updateCursor)
   useEventListener('mousemove', updateCursor, document)
   useEventListener('mousedown', () => {
-    gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
-      scale: 1.15,
+    gsap.set([cursorInnerRef.value,], {
+      scale: 2.5,
     })
   }, document)
   useEventListener('mouseup', () => {
-    gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
+    gsap.set([cursorInnerRef.value,], {
       scale: 1,
     })
   }, document)
@@ -59,10 +59,10 @@ onMounted(() => {
   <NuxtLayout>
     <div class="cursor hidden md:flex">
       <div ref="cursorInnerRef"
-        class="cursor--small mix-blend-difference pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
+        class="cursor--small pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
       </div>
       <div ref="cursorOuterRef"
-        class="cursor--large mix-blend-difference pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]">
+        class="cursor--large pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]">
       </div>
     </div>
     <NuxtPage />
