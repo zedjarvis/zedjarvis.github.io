@@ -14,7 +14,7 @@ useHead({
 
 // assets
 
-const currentSection = ref()
+const currentSection = ref<string | null>('about')
 const root = ref()
 const container = ref(null)
 
@@ -125,7 +125,7 @@ onMounted(() => {
         <h1 v-motion-slide-top ref="container" :style="headingStyle"
           class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl transition-all">
           <NuxtLink to="/">
-            Cedrouse Omondi
+            Cedrouseroll Omondi
           </NuxtLink>
         </h1>
         <h2 v-motion-pop class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
@@ -212,7 +212,7 @@ onMounted(() => {
           </ol>
 
           <!-- SECTION LINK  -->
-          <SectionLink external text="View Full Résumé" url="/Resume-Cedrouseroll-Omondi.pdf" />
+          <SectionLink text="View Full Résumé" url="/resume" />
 
         </div>
 

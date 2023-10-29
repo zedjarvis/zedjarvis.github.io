@@ -7,21 +7,32 @@ useHead({
 })
 
 import { gsap } from 'gsap';
+import { CSSProperties } from 'nuxt/dist/app/compat/capi';
 
 const cursorInnerRef = ref()
 const cursorOuterRef = ref()
 
-function updateCursor({ clientX, clientY }: MouseEvent) {
+const { x, y } = usePointer()
+const isLeft = usePageLeave()
+
+// hide custom cursor when mouse leaves page
+const cursorStyle = computed((): CSSProperties => {
+  return {
+    'opacity': isLeft.value ? 0 : 1
+  }
+})
+
+function updateCursor() {
   console.log('animating mouse')
   gsap.set(cursorInnerRef.value, {
-    left: clientX,
-    top: clientY,
+    left: x.value,
+    top: y.value,
   })
 
   gsap.to(cursorOuterRef.value, {
     duration: 0.2,
-    x: clientX,
-    y: clientY,
+    x: x.value,
+    y: y.value,
   });
 
 }
@@ -30,28 +41,6 @@ function updateCursor({ clientX, clientY }: MouseEvent) {
 onMounted(() => {
   // requestAnimationFrame(updateCursor)
   useEventListener('mousemove', updateCursor, document)
-  useEventListener('mousedown', () => {
-    gsap.set([cursorInnerRef.value,], {
-      scale: 2.5,
-    })
-  }, document)
-  useEventListener('mouseup', () => {
-    gsap.set([cursorInnerRef.value,], {
-      scale: 1,
-    })
-  }, document)
-  useEventListener('pointerenter', () => {
-    console.log('mousein')
-    gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
-      opacity: 1,
-    })
-  }, document)
-  useEventListener('pointerleave', () => {
-    console.log('mouse out')
-    gsap.set([cursorInnerRef.value, cursorOuterRef.value], {
-      opacity: 0,
-    })
-  }, document)
 })
 </script>
 
@@ -59,14 +48,16 @@ onMounted(() => {
   <NuxtLayout>
     <div class="cursor hidden md:flex">
       <div ref="cursorInnerRef"
-        class="cursor--small pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]">
+        class="cursor--small pointer-events-none select-none fixed z-50 top-0 left-0 w-2 h-2 rounded-full bg-[#36E4DA]"
+        :style="cursorStyle">
       </div>
       <div ref="cursorOuterRef"
-        class="cursor--large pointer-events-none select-none opacity-1 fixed z-50 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]">
+        class="cursor--large pointer-events-none select-none fixed z-50 top-0 left-0 w-8 h-8 rounded-full border border-solid border-[#36E4DA]"
+        :style="cursorStyle">
       </div>
     </div>
     <NuxtPage />
-    <UNotifications />
+    <!-- <UNotifications /> -->
   </NuxtLayout>
 </template>
 
