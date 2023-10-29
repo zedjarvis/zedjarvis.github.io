@@ -1297,6 +1297,14 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@productdevbook/chatwoot@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@productdevbook/chatwoot/-/chatwoot-1.4.0.tgz#80c9d085d1de02de482c580ab53adec27e00c5e6"
+  integrity sha512-Qy3ltBG4aADLQYuIqIu/kPaUfJPCy51RB1xQR+Ai+aKhDbPMuTMn+f3nOZKh7h7PorVoz9fpTJhSCDvVjsDo/A==
+  dependencies:
+    "@nuxt/kit" "^3.7.4"
+    defu "^6.1.2"
+
 "@resvg/resvg-js-android-arm-eabi@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@resvg/resvg-js-android-arm-eabi/-/resvg-js-android-arm-eabi-2.4.1.tgz#49dc9722f95096f8aff70186deae8e148d60dce5"
