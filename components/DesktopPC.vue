@@ -39,7 +39,7 @@ onLoop(({ elapsed }) => {
         :shadow-mapsize="1024" />
       <TresPointLight :intensity="1" cast-shadow />
       <Suspense>
-        <primitive ref="sphereRef" :object="scene" :scale="isMobile ? 0.7 : 1" :position="isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]"
+        <primitive :object="scene" :scale="isMobile ? 0.7 : 1" :position="isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]"
           :rotation="[-0.01, -0.2, -0.1]" />
         <template #fallback>
           <p>Loading...</p>
