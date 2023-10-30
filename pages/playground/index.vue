@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { MouseParallax, OrbitControls, useAnimations, useGLTF } from '@tresjs/cientos';
 import { TresCanvas } from '@tresjs/core';
-import { breakpointsTailwind } from '@vueuse/core';
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from 'three';
 import { reactive } from 'vue';
 
@@ -18,8 +17,6 @@ const state = reactive({
 
 
 const { scene, animations } = await useGLTF('/dragon_animation_flying/output.gltf', { draco: true })
-
-const breakpoints = useBreakpoints(breakpointsTailwind)
 
 const { actions } = useAnimations(animations, scene)
 
@@ -45,15 +42,15 @@ currentAction.play()
       :shadow-mapsize="1024" />
     <TresPointLight :intensity="1" />
     <Suspense>
-      <primitive :object="scene" :scale="isMobile ? 0.7 : 1" :position="isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]"
+      <primitive :object="scene" :scale="1" :position="[0, -3.25, -1.5]"
         :rotation="[-0.01, -0.2, -0.1]" />
       <template #fallback>
         <p>Loading...</p>
       </template>
     </Suspense>
     <MouseParallax :factor="1" :ease="3" />
-    <TresAmbientLight :position="[10, 10, 10]" :intensity="1.5" color="red" cast-shadow />
-    <!-- <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow /> -->
+    <TresAmbientLight :position="[10, 10, 10]" :intensity=".5" color="red" />
+    <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow />
   </TresCanvas>
 </template>
 
