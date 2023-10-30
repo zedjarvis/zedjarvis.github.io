@@ -14,8 +14,7 @@ useHead({
 
 // assets
 
-const greeted = useLocalStorage('greeted', false)
-const currentSection = ref()
+const currentSection = ref<string | null>('about')
 const root = ref()
 const container = ref(null)
 
@@ -27,26 +26,6 @@ const headingStyle = computed((): CSSProperties => {
     transform: isHovering.value ? `translateX(${parallax.tilt * 10}px) translateY(${parallax.roll * 10}px)` : '',
   }
 })
-const {
-  isSupported,
-  show,
-  onShow,
-  onError,
-} = useWebNotification({
-  title: 'Greetings from Ced!',
-  body: 'Enjoy your visit.',
-  dir: 'auto',
-  lang: 'en',
-  renotify: true,
-  tag: 'greeting',
-})
-
-if (isSupported.value && !greeted.value)
-  show()
-
-onShow(() => greeted.value = true)
-onError(() => console.log('Greeting notification not shown'))
-
 
 interface Link {
   text: string
@@ -144,17 +123,17 @@ onMounted(() => {
       class="font-space lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
         <h1 v-motion-slide-top ref="container" :style="headingStyle"
-          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
+          class="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl transition-all">
           <NuxtLink to="/">
-            Cedrouse Omondi
+            Cedrouseroll Omondi
           </NuxtLink>
         </h1>
-        <h2 v-motion-slide-left class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
+        <h2 v-motion-pop class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
           <RoughNotation :is-show="true" type="highlight" color="#f4f169">
             <span class="text-slate-500">Fullstack Software Developer</span>
           </RoughNotation>
         </h2>
-        <p v-motion-pop class="mt-4 max-w-xs leading-normal">
+        <p v-motion-slide-left class="mt-4 max-w-xs leading-normal">
           <span class="font-thin">"The code you write makes you a programmer. The code you delete makes you a good one.
             The code you don't have to write makes you a great one."
           </span>
@@ -218,8 +197,10 @@ onMounted(() => {
       <!-- ABOUT SECTION -->
       <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
         <SectionHeader title="About" />
-        <About v-motion-slide-right />
+        <About v-motion-pop />
       </section>
+
+      <DesktopPC />
 
       <!-- EXPERIENCE SECTION  -->
       <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
@@ -233,7 +214,24 @@ onMounted(() => {
           </ol>
 
           <!-- SECTION LINK  -->
-          <SectionLink external text="View Full Résumé" url="/Resume-Cedrouseroll-Omondi.pdf" />
+          <a class="inline-flex items-center font-medium leading-tight text-slate-200 group"
+            aria-label="View Full Project Archive" href="/Cedrouseroll_Omondi_Resume.pdf" target="_blank">
+            <span>
+              <span
+                class="border-b border-transparent pb-px transition group-hover:border-teal-300 motion-reduce:transition-none">
+                View Full Résumé 
+              </span>
+              <span class="whitespace-nowrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+                  aria-hidden="true">
+                  <path fill-rule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </span>
+          </a>
 
         </div>
 
@@ -269,13 +267,6 @@ onMounted(() => {
             </li>
           </ul>
         </div>
-      </section>
-
-      <section id="3D">
-        <TresMesh :position="[2, 2, 0]" cast-shadow>
-          <TresSphereGeometry />
-          <TresMeshToonMaterial color="#FBB03B" />
-        </TresMesh>
       </section>
 
       <!-- FOOTER  -->
