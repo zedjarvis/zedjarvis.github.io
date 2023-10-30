@@ -1,1 +1,0 @@
-import{f as s,a5 as o,o as n,c as a,t as c,h as p}from"./entry.f9f2b792.js";const r={class:"flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-space font-medium leading-5 text-teal-300"},m=s({__name:"Pill",props:{text:{}},setup(t){const e=o(t,"text");return(i,f)=>(n(),a("div",r,c(p(e)),1))}});export{m as _};
