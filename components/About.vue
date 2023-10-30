@@ -33,7 +33,7 @@ const isShow = ref(true)
         Django
       </RoughNotation>
       , React,
-      <RoughNotation :is-show="isShow" type="circle" color="#42b883" :padding="2">
+      <RoughNotation :is-show="isShow" type="underline" color="#42b883" :padding="2">
         Vue.js
       </RoughNotation>
       , Laravel, and Express.js.
