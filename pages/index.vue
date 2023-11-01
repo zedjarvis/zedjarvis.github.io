@@ -91,7 +91,7 @@ const projects = ref<Project[]>([
   {
     title: 'Pro-Manager.com',
     image: '/images/portfolio3.png',
-    url: 'https://pro-manager.vercel.app',
+    url: 'https://github.com/zedjarvis/promanager',
     body: 'A Project Management web application. The landing page is greatly inspired by Trello and the actual app by ProjectManager.com. Fronted is built with Vue composition api and Typescript while the backed is build with Django & Django Rest Framework. The app uses JWT authentication and django-channels for websockets, Postgresql and Redis for database requirements.',
     techStack: ['Django', 'Vue.js', 'Vuetify', 'UnoCSS', 'SCSS', 'Typescript', 'Javascript', 'Postgresql', 'DRF', 'Redis', 'Docker']
   },
