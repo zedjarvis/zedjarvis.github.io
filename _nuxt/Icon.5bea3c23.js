@@ -1,0 +1,1 @@
+import{_ as n,f as o,o as s,c as r,A as t}from"./entry.c8770a28.js";const a=o({props:{name:{type:String,required:!0}}});function c(e,p,_,m,i,l){return s(),r("span",{class:t(e.name)},null,2)}const u=n(a,[["render",c]]);export{u as _};
