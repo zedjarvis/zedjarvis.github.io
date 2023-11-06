@@ -41,11 +41,12 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Cedrouseroll\'s Personal Portfolio Website' },
+        { name: 'description', content: 'Cedrouseroll Omondi, Full-Stack Software Developer.' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'theme-color', content: '#1a3a46' },
       ],
+      title: 'Cedrouseroll Omondi'
     },
   },
 })
