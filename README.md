@@ -1,4 +1,6 @@
-# PERSONAL PORTFOLIO
+# ZED'S PORTFOLIO
+
+![Cedrouseroll Omondi portfolio shot](/hero.png?raw=true)
 
 Built with [Nuxt 3](https://nuxt.com/docs/getting-started/introduction) and @nuxt/ui.
 
@@ -16,11 +18,6 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
 
 # yarn
 yarn dev

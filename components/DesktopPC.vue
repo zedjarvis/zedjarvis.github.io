@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { MouseParallax, OrbitControls, useGLTF } from '@tresjs/cientos';
+import { MouseParallax, OrbitControls, useGLTF, useProgress } from '@tresjs/cientos';
 import { TresCanvas, useRenderLoop } from '@tresjs/core';
 import { ACESFilmicToneMapping, BasicShadowMap, SRGBColorSpace } from 'three';
 import { reactive, ref } from 'vue';
 
 const { scene } = await useGLTF('/gaming_desktop_pc/scene.gltf', { draco: true })
+const { hasFinishLoading, progress, items } = await useProgress()
 scene.background = null
 
 
@@ -41,9 +42,9 @@ onLoop(({ elapsed }) => {
       <Suspense>
         <primitive :object="scene" :scale="isMobile ? 0.7 : 1" :position="isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]"
           :rotation="[-0.01, -0.2, -0.1]" />
-        <template #fallback>
-          <p>Loading...</p>
-        </template>
+        <!-- <template #fallback>
+          <p>Loading...{{ progress }}</p>
+        </template> -->
       </Suspense>
       <MouseParallax :factor="0.5" :ease="3" />
       <TresDirectionalLight :position="[0, 2, 4]" :intensity=".5" cast-shadow />
