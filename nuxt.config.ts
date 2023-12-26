@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Cedrouseroll Omondi, Full-Stack Software Developer.' },
+        { name: 'description', content: 'Cedrouseroll Omondi is a Full-Stack Software Developer. He is very passionate about software development. His Primary coding language is Python. He has hands-on Professional Experience with using Django, Vuejs, React, Laravel, Postgresql, MongoDB, UnoCSS and Vuetify. When he is not coding, he is somewhere building custom furniture or making 3d designs with blender and Sketchup.' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'theme-color', content: '#1a3a46' },
