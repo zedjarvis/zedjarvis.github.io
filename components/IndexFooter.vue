@@ -6,7 +6,7 @@
       Built with
       <InlineLink url="https://nuxt.com/" text="Nuxt.js" />
       and
-      <InlineLink url="https://ui.nuxt.com/" text="@nuxt/ui" />, deployed with
+      <InlineLink url="https://ui.nuxt.com/" text="@nuxt/ui" />, deployed on
       <InlineLink url="https://github.com/pages" text="Github pages" />.
     </p>
   </footer>
