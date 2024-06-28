@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { gsap } from "gsap";
+import type { CSSProperties } from "vue";
+
 useHead({
   titleTemplate: "%s ← Cedrouseroll Omondi",
   bodyAttrs: {
@@ -6,10 +9,6 @@ useHead({
       "relative font-space text-slate-400 leading-relaxed bg-[#002937] selection:text-teal-900 selection:bg-teal-300",
   },
 });
-
-import { gsap } from "gsap";
-// import { CSSProperties } from 'nuxt/dist/app/compat/capi';
-import type { CSSProperties } from "vue";
 
 const cursorInnerRef = ref();
 const cursorOuterRef = ref();
@@ -24,7 +23,7 @@ const cursorStyle = computed((): CSSProperties => {
   };
 });
 
-function updateCursor() {
+function updateCursor(): void {
   console.log("animating mouse");
   gsap.set(cursorInnerRef.value, {
     left: x.value,
