@@ -22,7 +22,6 @@ const cursorStyle = computed((): CSSProperties => {
     opacity: isLeft.value ? 0 : 1,
   };
 });
-
 function updateCursor(): void {
   console.log("animating mouse");
   gsap.set(cursorInnerRef.value, {
