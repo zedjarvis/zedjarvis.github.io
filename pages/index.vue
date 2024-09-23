@@ -4,7 +4,7 @@ import { experiences, projects } from "~/constants";
 
 // SEO
 useHead({
-  title: "Home",
+  title: "Index Of Cedrouseroll Omondi",
 });
 
 // utils
@@ -191,12 +191,7 @@ onMounted(() => {
         <SectionHeader title="Experience" />
         <div>
           <ol class="group/list">
-            <li
-              v-motion-pop-visible-once
-              v-for="(exp, i) in experiences"
-              :key="i"
-              class="mb-12"
-            >
+            <li v-for="(exp, i) in experiences" :key="i" class="mb-12">
               <ExperienceCard
                 :start-date="exp.startDate"
                 :end-date="exp.endDate"
@@ -214,7 +209,7 @@ onMounted(() => {
           <a
             class="inline-flex items-center font-medium leading-tight text-slate-200 group"
             aria-label="View Full Project Archive"
-            href="/Cedrouseroll_Omondi_Resume.pdf"
+            href="/cedrouseroll_omondi_resume_full_stack_developer.pdf"
             target="_blank"
           >
             <span>
