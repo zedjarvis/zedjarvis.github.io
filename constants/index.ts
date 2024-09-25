@@ -95,6 +95,7 @@ const projects = ref<Project[]>([
     opensource: true,
   },
   {
+  {
     title: "Pro-Manager.com",
     image: "/images/portfolio3.png",
     url: "https://github.com/zedjarvis/promanager",
