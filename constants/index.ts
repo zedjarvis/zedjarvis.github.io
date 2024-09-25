@@ -95,6 +95,12 @@ const projects = ref<Project[]>([
     opensource: true,
   },
   {
+    title: "HaftStudio Website",
+    image: "/images/portfolio.jpg",
+    url: "https://haftstudio-website.vercel.app",
+    body: "Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement.",
+    techStack: ["Vue.js", "Vuetify", "SCSS", "Typecript"],
+  },
   {
     title: "Pro-Manager.com",
     image: "/images/portfolio3.png",
@@ -113,13 +119,6 @@ const projects = ref<Project[]>([
       "Redis",
       "Docker",
     ],
-  },
-  {
-    title: "HaftStudio Website",
-    image: "/images/portfolio.jpg",
-    url: "https://haftstudio-website.vercel.app",
-    body: "Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement.",
-    techStack: ["Vue.js", "Vuetify", "SCSS", "Typecript"],
   },
 ]);
 
