@@ -81,7 +81,7 @@ const projects = ref<Project[]>([
   {
     title: "TaxManager",
     image: "/images/portfolio4.png",
-    url: "https://digitax.tech",
+    url: "https://docs.digitax.tech/docs/sage-online-plugin",
     body: "An Electron Desktop and web application that integrages Locally hosted ERP systems e.g Sage and Odoo to digitax for Tax Compliance with the new ETIMS API specifications. The frontend is Vue while the backend is Expressjs. It uses sequelize ORM to simplify DB access. Integrated for DXC Technology, Ngong Veg Ltd, Seweco Paints, Poa Internet and more.",
     techStack: ["Electron", "Express", "Vue.js", "Typescript", "SQL"],
     opensource: false,
@@ -93,6 +93,13 @@ const projects = ref<Project[]>([
     body: "A simple Vue 3 component to compare two images with a slider, supports vertical and horizontal modes and keyboard navigation for accessibility. Typescript support for improved developer experience.",
     techStack: ["Vue.js", "Typescript", "unbuild", "pnpm"],
     opensource: true,
+  },
+  {
+    title: "HaftStudio Website",
+    image: "/images/portfolio.jpg",
+    url: "https://haftstudio-website.vercel.app",
+    body: "Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement.",
+    techStack: ["Vue.js", "Vuetify", "SCSS", "Typecript"],
   },
   {
     title: "Pro-Manager.com",
@@ -112,13 +119,6 @@ const projects = ref<Project[]>([
       "Redis",
       "Docker",
     ],
-  },
-  {
-    title: "HaftStudio Website",
-    image: "/images/portfolio.jpg",
-    url: "https://haftstudio-website.vercel.app",
-    body: "Simple, Modern, professional website made for a Design, Furniture and Build company. Still under developement.",
-    techStack: ["Vue.js", "Vuetify", "SCSS", "Typecript"],
   },
 ]);
 
