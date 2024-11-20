@@ -53,7 +53,7 @@ onMounted(() => {
         </h1>
         <h2 v-motion-pop class="font-medium mt-3 text-lg tracking-tight text-slate-200 sm:text-xl">
           <RoughNotation :is-show="true" type="highlight" color="#f4f169">
-            <span class="text-slate-500">Fullstack Software Developer</span>
+            <span class="text-slate-500">Full-Stack Software Developer</span>
           </RoughNotation>
         </h2>
         <p v-motion-slide-left class="mt-4 max-w-xs leading-normal">
