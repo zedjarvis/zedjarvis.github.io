@@ -81,7 +81,7 @@ const projects = ref<Project[]>([
   {
     title: "TaxManager",
     image: "/images/portfolio4.png",
-    url: "https://docs.digitax.tech/docs/sage-online-plugin",
+    url: "https://ke.docs.digitax.tech/docs/digitax-sage-online-plugin",
     body: "An Electron Desktop and web application that integrages Locally hosted ERP systems e.g Sage and Odoo to digitax for Tax Compliance with the new ETIMS API specifications. The frontend is Vue while the backend is Expressjs. It uses sequelize ORM to simplify DB access. Integrated for DXC Technology, Ngong Veg Ltd, Seweco Paints, Poa Internet and more.",
     techStack: ["Electron", "Express", "Vue.js", "Typescript", "SQL"],
     opensource: false,
