@@ -12,7 +12,7 @@
     "vue-rough-notation": "^1.0.4"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.2.3",
+    "@iconify-json/carbon": "^1.2.14",
     "@nuxt/content": "^2.13.4",
     "@nuxt/devtools": "1.6.0",
     "@nuxt/ui": "^2.18.7",
@@ -22,7 +22,7 @@
     "@vueuse/core": "^11.1.0",
     "@vueuse/motion": "^2.2.6",
     "@vueuse/nuxt": "^11.1.0",
-    "gsap": "^3.12.2",
+    "gsap": "^3.13.0",
     "happy-dom": "^15.7.4",
     "nuxt": "^3.13.2",
     "nuxt-gtag": "^3.0.1",
