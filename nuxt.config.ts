@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "nuxt-typed-router",
     "@vueuse/nuxt",
-    "@vueuse/motion/nuxt",
     "nuxt-gtag",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
