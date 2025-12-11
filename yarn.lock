@@ -700,10 +700,10 @@
   dependencies:
     "@tanstack/vue-virtual" "^3.0.0-beta.60"
 
-"@iconify-json/carbon@^1.2.14":
-  version "1.2.14"
-  resolved "https://registry.yarnpkg.com/@iconify-json/carbon/-/carbon-1.2.14.tgz#36593c3ac25bf8e180142258739fa0d02101b619"
-  integrity sha512-33u6uGiYJ79Dfp72peT+PBMcjxzi+NyJLpqYRX8pnw0zchsUW7Us2xecgvkWgD83KYcbe6hufyWlHFU9y7fb/Q==
+"@iconify-json/carbon@^1.2.15":
+  version "1.2.15"
+  resolved "https://registry.yarnpkg.com/@iconify-json/carbon/-/carbon-1.2.15.tgz#52d7e6e7c57af3f700ddf2fe0acb85f9c8ae66c9"
+  integrity sha512-9tW0nZY5QtKkMhuYzW09BM1345SyXNuA+gx2ub0j/fnfHOD5XVimMJ/D76H3tTez25NJbPYCLIQoFhvJc1HVBQ==
   dependencies:
     "@iconify/types" "*"
 
